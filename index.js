@@ -48,8 +48,9 @@ function processFirstItem(stringList, callback) {
  * [2] Invoking `processLength` passing `[]` and `(num) => "There are " + num`,
  * should return "There are 0".
 */
-function processLength(/* CODE HERE */) {
-  /* CODE HERE */
+function processLength(list, callback) {
+  return callback(list.length);
+
 }
 
 /**
@@ -66,8 +67,8 @@ function processLength(/* CODE HERE */) {
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
+function processLastItem(stringList, callback) {
+  return callback(stringList[stringList.length -1]);
 }
 
 /**
@@ -87,8 +88,8 @@ function processLastItem(/* CODE HERE */) {
  * [2] Invoking `processSum` passing `[]` and `(num) => num + 1000`,
  * should return 1000.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
+function processSum(numberList, callback) {
+    return callback(numberList.reduce((a, b) => a + b, 0));
 }
 
 /**
@@ -109,33 +110,37 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, callback) {
+  
+    return callback(num1*num2);
+
 }
 
 /**
  * ### Challenge `processContains`
- * 
- * @instructions
- * Implement a higher-order function called `processContains`.
- * It takes three arguments:
- * @param item of any kind.
- * @param list array of elements of any kind.
- * @param callback function that takes a boolean as its argument.
+ * @instructions Implement a higher-order function called `processContains`.
+It takes three arguments:
+ * @param {any} item of any kind.
+ * @param {{ include: (arg0: any) => void; }} list array of elements of any kind.
+ * @param {(arg0: any) => void} callback function that takes a boolean as its argument.
  * @returns the result of invoking `callback` passing true if `item` exists in `list`, false otherwise.
- * 
- * Examples of usage of this higher-order function:
- * [1] Invoking `processContains` passing
- * "foo" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`
- * should return "nice!".
- * 
- * [2] Invoking `processContains` passing
- * "lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
- * should return "sad".
-*/
-function processContains(/* CODE HERE */) {
-  /* CODE HERE */
+
+Examples of usage of this higher-order function:
+[1] Invoking `processContains` passing
+"foo" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`
+should return "nice!".
+
+[2] Invoking `processContains` passing
+"lady gaga" and `['foo', 'bar']` and `(bool) => bool ? 'nice!' : 'sad'`,
+should return "sad".
+ */
+function processContains(item, list, callback) {
+
+
+return callback(list.include(item));
+
 }
+
 
 /**
  * ### Challenge `processDuplicateFree`
